@@ -4,7 +4,6 @@ Created by Mr. Korch. (c)
 """
 import create_graph
 import networkx as nx
-import matplotlib.pyplot as plt
 
 def different_sets(vert_sets: set, first_vert: str, second_vert: str):
     """
@@ -79,11 +78,3 @@ def kruskal_algorythm(graph: nx.Graph):
             all_sets = change_sets(all_sets, str(elem[0]), str(elem[1]))
 
     return spanning_tree
-
-
-# G = create_graph.gnp_random_connected_graph(10, 0.9)
-
-# nx.draw(kruskal_algorythm(G), node_color='lightblue', 
-#         with_labels=True, 
-#         node_size=500)
-# plt.show()

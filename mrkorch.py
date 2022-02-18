@@ -1,5 +1,4 @@
 """A module that creates a minimum spanning tree using kruskal algorithm.
-
 Created by Mr. Korch. (c)
 """
 import create_graph
@@ -24,7 +23,7 @@ def different_sets(vert_sets: set, first_vert: int, second_vert: int):
             return True
 
 
-def change_sets(vert_sets: set, first_vert: int, second_vert: int):
+def change_sets(vert_sets: list, first_vert: int, second_vert: int):
     """
     Connects two sets into one. One set must contain first vertice,
     and another one the second vertice. Returns a list of sets
@@ -39,15 +38,10 @@ def change_sets(vert_sets: set, first_vert: int, second_vert: int):
     """
     to_connect = list()
     for part in vert_sets:
-        if first_vert in part:
+        if first_vert in part or second_vert in part:
             to_connect.append(part)
             if len(to_connect) == 2:
                 break
-        elif second_vert in part:
-            to_connect.append(part)
-            if len(to_connect) == 2:
-                break
-
     union_sets = [to_connect[0].union(to_connect[1])]
     res = [el for el in vert_sets if first_vert not in el and second_vert not in el]
     res += union_sets
@@ -67,7 +61,7 @@ def kruskal_algorythm(graph: nx.Graph):
     spanning_tree = nx.Graph()
 
     edges_weight = sorted(graph.edges(data=True), key=lambda x: x[2]["weight"])
-    quantity_of_vertcies = max(graph.nodes()) + 1
+    quantity_of_vertcies = len(graph.nodes())
     all_sets = [set([vertice]) for vertice in range(quantity_of_vertcies)]
 
     chosen_edges = 0

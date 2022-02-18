@@ -36,27 +36,4 @@ def gnp_random_connected_graph(num_of_nodes: int,
                 node_size=500)
         plt.show()
     return G
-
-G = gnp_random_connected_graph(10, 0.4, False)
-
-
-mstk = tree.minimum_spanning_tree(G, algorithm="kruskal")
-
-
-nx.draw(mstk, node_color='lightblue',
-        with_labels=True,
-        node_size=500)
-
-print(mstk.edges(), len(mstk.edges()))
-
-mstp = tree.minimum_spanning_tree(G, algorithm="prim")
-
-nx.draw(mstp, node_color='lightblue',
-        with_labels=True,
-        node_size=500)
-
-print(mstp.edges(), len(mstp.edges()))
-
-edges = list(G.edges())
-
-edges[:5]
+  

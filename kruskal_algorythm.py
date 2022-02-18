@@ -74,7 +74,5 @@ def kruskal_algorythm(graph: nx.Graph):
             spanning_tree.add_edge(elem[0], elem[1])
             chosen_edges += 1
             if chosen_edges == quantity_of_vertcies - 1:
-                break
+                return spanning_tree
             all_sets = change_sets(all_sets, str(elem[0]), str(elem[1]))
-
-    return spanning_tree

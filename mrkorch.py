@@ -42,9 +42,8 @@ def change_sets(vert_sets: list, first_vert: int, second_vert: int):
             to_connect.append(part)
             if len(to_connect) == 2:
                 break
-    union_sets = [to_connect[0].union(to_connect[1])]
     res = [el for el in vert_sets if first_vert not in el and second_vert not in el]
-    res += union_sets
+    res += [to_connect[0].union(to_connect[1])]
     return res
 
 

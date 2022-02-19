@@ -45,9 +45,9 @@ def change_sets(vert_sets: set, first_vert: int, second_vert: int):
                 to_connect |= part
                 i += 1
             else:
-                res += [part]
+                res.append(part)
         else:
-            res += [part]
+            res.append(part)
     return res + [to_connect]
 
 

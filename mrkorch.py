@@ -5,7 +5,7 @@ import create_graph
 import networkx as nx
 
 
-def different_sets(vert_sets: set, first_vert: int, second_vert: int):
+def different_sets(vert_sets: list, first_vert: int, second_vert: int):
     """
     Checks whether 'first_vert' and 'second_vert' are in different sets
     in list of sets 'vert_sets'.
@@ -17,8 +17,8 @@ def different_sets(vert_sets: set, first_vert: int, second_vert: int):
         bool value: True (different sets) or False (same set)
     """
     for part in vert_sets:
-        if first_vert in part:
-            if second_vert in part:
+        if first_vert in part or second_vert in part:
+            if first_vert in part and second_vert in part: #if set([first_vert, second_vert]).issubset(part):
                 return False
             return True
 
@@ -43,9 +43,8 @@ def change_sets(vert_sets: list, first_vert: int, second_vert: int):
             if len(to_connect) == 2:
                 break
     res = [el for el in vert_sets if first_vert not in el and second_vert not in el]
-    res += [to_connect[0].union(to_connect[1])]
+    res += [to_connect[0] | to_connect[1]]
     return res
-
 
 
 def kruskal_algorythm(graph: nx.Graph):

@@ -37,14 +37,17 @@ def change_sets(vert_sets: set, first_vert: int, second_vert: int):
     2
     """
     to_connect = set()
+    res = list()
     i = 0
     for part in vert_sets:
-        if first_vert in part or second_vert in part:
-            to_connect |= part
-            i += 1
-            if i == 2:
-                break
-    res = [el for el in vert_sets if first_vert not in el and second_vert not in el]
+        if i < 2:
+            if first_vert in part or second_vert in part:
+                to_connect |= part
+                i += 1
+            else:
+                res += [part]
+        else:
+            res += [part]
     return res + [to_connect]
 
 

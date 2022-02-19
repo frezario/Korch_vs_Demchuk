@@ -20,18 +20,22 @@ def prim_algorithm(graph:nx.Graph) -> nx.Graph:
     EdgeDataView([(1, 2, {'weight': 1}), (2, 3, {'weight': 0})])
     """
     spanning_tree = nx.Graph()
-    # Adding starting point to a tree
-    spanning_tree.add_node(list(graph.nodes)[0])
+    spanning_tree.add_node(list(graph.nodes())[0])
+    incident_edges = set()
+    last_added_node = list(graph.nodes())[0]
     while len(spanning_tree.nodes) != len(graph.nodes):
-        # Searching for incident edges to nodes of already built tree
-        incident_edges = list(graph.edges(spanning_tree.nodes, data=True))
+        # Searching for new incident edges to nodes of already built tree
+        new_edges = {(edge[0], edge[1], edge[2]['weight']) for edge in graph.edges(last_added_node, data=True)}
+        incident_edges = incident_edges.union(new_edges)
+        # print(f"incident_edges: {incident_edges}")
         # Deleting those that would form a circuit
-        cyclic_edges = set(combinations(spanning_tree.nodes, 2))
-        incident_edges = [edge for edge in incident_edges if (edge[0], edge[1]) not in cyclic_edges]
+        incident_edges -= {edge for edge in incident_edges if edge[0] in spanning_tree.nodes and edge[1] in spanning_tree.nodes}
+        # print(f"incident_edges: {incident_edges}")
         # Searching for a cheapest edge, which is incident to already added nodes
-        min_edge = min(incident_edges, key=lambda edge: edge[2]['weight'])
+        min_edge = min(incident_edges, key=lambda edge: edge[2])
         # Adding it to our tree
-        spanning_tree.add_edge(min_edge[0], min_edge[1], weight = min_edge[2]['weight'])
+        spanning_tree.add_edge(min_edge[0], min_edge[1], weight = min_edge[2])
+        last_added_node = min_edge[0] if min_edge[0] not in list(spanning_tree.nodes) else min_edge[1]
         # Removing it from our graph
         graph.remove_edge(min_edge[0], min_edge[1])
     return spanning_tree

@@ -23,7 +23,7 @@ def different_sets(vert_sets: list, first_vert: int, second_vert: int):
             return True
 
 
-def change_sets(vert_sets: list, first_vert: int, second_vert: int):
+def change_sets(vert_sets: set, first_vert: int, second_vert: int):
     """
     Connects two sets into one. One set must contain first vertice,
     and another one the second vertice. Returns a list of sets
@@ -36,15 +36,16 @@ def change_sets(vert_sets: list, first_vert: int, second_vert: int):
     >>> len(change_sets([{1, 2}, {3, 4, 5}, {6, 7}], 1, 7))
     2
     """
-    to_connect = list()
+    to_connect = set()
+    i = 0
     for part in vert_sets:
         if first_vert in part or second_vert in part:
-            to_connect.append(part)
-            if len(to_connect) == 2:
+            to_connect |= part
+            i += 1
+            if i == 2:
                 break
     res = [el for el in vert_sets if first_vert not in el and second_vert not in el]
-    res += [to_connect[0] | to_connect[1]]
-    return res
+    return res + [to_connect]
 
 
 def kruskal_algorythm(graph: nx.Graph):

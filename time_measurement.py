@@ -1,7 +1,6 @@
 '''
     A module for time measurement of algorithms.
 '''
-from telnetlib import COM_PORT_OPTION
 import time
 from tqdm import tqdm
 import create_graph

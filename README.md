@@ -8,13 +8,13 @@ There are 4 Python modules, namely:
 
 ```create_graph.py``` - a module that contains gnp_random_connected_graph() function to generate random graphs.
 
-```kruskal_algorithm.py``` - a module that contains kruskal_algorithm() function to seek for spanning tree in a graphs and two supportive functions.
+```kruskal_algorithm.py``` - a module that contains kruskal_algorithm() function to seek for spanning tree in graphs and two supportive functions.
 
 An example of spanning tree generated:
 
 ![image](https://user-images.githubusercontent.com/91615650/154845615-ec98f5ac-15ad-4b43-b8eb-a62680270b4b.png)
 
-```prim_algorithm.py``` - a module that contains prim_algorithm() function to seek for spanning tree in a graphs.
+```prim_algorithm.py``` - a module that contains prim_algorithm() function to seek for spanning tree in graphs.
 
 An example of spanning tree generated:
 

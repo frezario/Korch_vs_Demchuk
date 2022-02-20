@@ -1,1 +1,1 @@
-# Korch_vs_Demchuk
+# Kruskal vs Prim

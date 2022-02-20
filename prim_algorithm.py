@@ -3,9 +3,6 @@
     All rights preserved.
 '''
 import networkx as nx
-import create_graph
-from itertools import combinations
-
 
 def prim_algorithm(graph:nx.Graph) -> nx.Graph:
     """

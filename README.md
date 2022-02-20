@@ -30,7 +30,7 @@ The console will appear and ask you to pass several pieces of data and then it w
 
 After, it will ask you if you'd like to plot a graph with statistics. If positive answer received, the plotting will begin. Ecentually, it will display a graph.
 
-(Note: the graph completeness and number of iterations will reamin the same).
+(Note: the graph completeness and number of iterations will remain the same).
 
 Results for certain values:
 

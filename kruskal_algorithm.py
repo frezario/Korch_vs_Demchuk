@@ -1,9 +1,7 @@
 """A module that creates a minimum spanning tree using kruskal algorithm.
 Created by Mr. Korch. (c)
 """
-import create_graph
 import networkx as nx
-
 
 def different_sets(vert_sets: list, first_vert: int, second_vert: int):
     """
@@ -15,10 +13,12 @@ def different_sets(vert_sets: list, first_vert: int, second_vert: int):
         second_vert (int): a second vertice
     Returns:
         bool value: True (different sets) or False (same set)
+    >>> different_sets([{1, 2}, {2, 4}], 1, 4)
+    True
     """
     for part in vert_sets:
         if first_vert in part or second_vert in part:
-            if first_vert in part and second_vert in part: #if set([first_vert, second_vert]).issubset(part):
+            if first_vert in part and second_vert in part:
                 return False
             return True
 
@@ -59,6 +59,8 @@ def kruskal_algorythm(graph: nx.Graph):
         graph (nx.Graph): a grapth (class networkx.Graph)
     Returns:
         a graph: spanning tree with minimum weight (class networkx.Graph)
+    >>> kruskal_algorythm(nx.Graph([(1,2,{'weight':1}),(1,3,{'weight':2}),(2,3,{'weight':0})])).edges(data=True)
+    EdgeDataView([(2, 3, {}), (2, 1, {})])
     """
     spanning_tree = nx.Graph()
 

@@ -1,3 +1,6 @@
+'''
+    A module that generates random graphs.
+'''
 import random
 from itertools import combinations, groupby
 import networkx as nx

@@ -2,7 +2,6 @@ import random
 from itertools import combinations, groupby
 import networkx as nx
 import matplotlib.pyplot as plt
-from networkx.algorithms import tree
 
 
 def gnp_random_connected_graph(num_of_nodes: int,
@@ -36,4 +35,3 @@ def gnp_random_connected_graph(num_of_nodes: int,
                 node_size=500)
         plt.show()
     return G
-  

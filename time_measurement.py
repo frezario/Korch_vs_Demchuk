@@ -9,6 +9,16 @@ import prim_algorithm
 
 
 def measure_avarage_time(algorithm, num_of_iterations: int, nodes_count: int, completeness: float):
+    """
+    Returns an average time taken for one iteration of algorithm to perform.
+    Args:
+        algorithm (_type_): an algorithm.
+        num_of_iterations (int): number of iterations to perform.
+        nodes_count (int): a number of nodes in graph.
+        completeness (float): a completeness of a graph.
+    Returns:
+        float: average time.
+    """
     time_taken = 0
     for _ in tqdm(range(num_of_iterations)):
         graph = create_graph.gnp_random_connected_graph(
@@ -21,6 +31,11 @@ def measure_avarage_time(algorithm, num_of_iterations: int, nodes_count: int, co
 
 
 def show_difference():
+    """
+    Performs two of the algorithms and shows a difference in time between them.
+    Gets all the data from standart input.
+    Returns number of iterations and completeness of a graph.
+    """
     print('Pls, enter the number of iterations to perform:')
     while True:
         try:
@@ -52,6 +67,15 @@ def show_difference():
 
 
 def plot_statistics(iterations:int = 15, completeness:int = 0.5):
+    """
+    Plots two graphs if user wants to and returns None otherwise.
+    Red and blue curves represent two 'average time'-functions of Prim
+    and Kruskal algorithms, respectively.
+    Args:
+        iterations (int, optional): number of iterations to perform. Defaults to 15.
+        completeness (int, optional): a completeness of a graph. Defaults to 0.5.
+    Returns nothing.
+    """
     print('Would you like to plot a graph with a statistics using pre-entered data?(Y/n)')
     answer = input('>>> ')[0]
     if answer in 'Nn':

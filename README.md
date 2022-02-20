@@ -24,10 +24,13 @@ An example of spanning tree generated:
 
 To make a detailed comparison of two algorithms, you should run time_measurement.py.
 
-The console will appear and ask you to pass several pieces of data and then it will display the average time of each algorithm.:
+The console will appear and ask you to pass several pieces of data and then it will display the average time of each algorithm:
 
 ![image](https://user-images.githubusercontent.com/91615650/154846036-4ec9a177-d9a1-42a2-8e68-d2d4b9de7ee9.png)
 
+After, it will ask you if you'd like to plot a graph with statistics. If positive answer received, the plotting will begin. Ecentually, it will display a graph.
+
+(Note: the graph completeness and number of iterations will reamin the same).
 
 Results for certain values:
 
